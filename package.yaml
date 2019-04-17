@@ -20,26 +20,79 @@ extra-source-files:
 description:         Please see the README on GitHub at <https://github.com/githubuser/genderhs#readme>
 
 dependencies:
-- base >= 4.7 && < 5
-- filepath
-- directory
+- rio
+- base >= 4.7 && < 10
+#conduit
+- xml-types
 - http-conduit
 - xml-conduit
 - html-conduit
 - binary-conduit
-- xml-types
 - tar-conduit
 - conduit-extra
 - conduit
+# resource mangement
 - resourcet
-- mtl
-- text
-- bytestring
-- gnuplot
 - wave
-- containers
+# plotting
+- gnuplot
+# math
 - pure-fft
+# parllel / async
 - binary
+- parallel
+- async
+
+default-extensions:
+- AutoDeriveTypeable
+- BangPatterns
+- BinaryLiterals
+- ConstraintKinds
+- DataKinds
+- DefaultSignatures
+- DeriveDataTypeable
+- DeriveFoldable
+- DeriveFunctor
+- DeriveGeneric
+- DeriveTraversable
+- DoAndIfThenElse
+- EmptyDataDecls
+- ExistentialQuantification
+- FlexibleContexts
+- FlexibleInstances
+- FunctionalDependencies
+- GADTs
+- GeneralizedNewtypeDeriving
+- InstanceSigs
+- KindSignatures
+- LambdaCase
+- MonadFailDesugaring
+- MultiParamTypeClasses
+- MultiWayIf
+- NamedFieldPuns
+- NoImplicitPrelude
+- OverloadedStrings
+- PartialTypeSignatures
+- PatternGuards
+- PolyKinds
+- RankNTypes
+- RecordWildCards
+- ScopedTypeVariables
+- StandaloneDeriving
+- TupleSections
+- TypeFamilies
+- TypeSynonymInstances
+- ViewPatterns
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wpartial-fields
+- -Wredundant-constraints
+
 library:
   source-dirs: src
 
@@ -51,6 +104,7 @@ executables:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    - -O2
     dependencies:
     - genderhs
 
