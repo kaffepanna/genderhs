@@ -24,11 +24,11 @@ hamming' n alpha =
     let beta = 1 - alpha
      in [alpha - beta * cos(2 * pi * fromIntegral i / (fromIntegral n - 1)) | i <- [0..n - 1]]
 
-toMesh :: Num c => [[c]] -> [[(c, c, c)]]
+toMesh :: (Num c) => [[c]] -> [[(c, c, c)]]
 toMesh dd = do
-    (x, fs) <- zip [1..] dd
+    (x, fs) <- zip ([1..] :: [Integer]) dd
     return $ do
-        (y, p) <- zip [0..] fs
+        (y, p) <- zip ([0..] :: [Integer]) fs
         return (fromIntegral x, fromIntegral y, p)
 
 spectrogram :: Int -> Int -> [Complex Double] -> [[Complex Double]]
