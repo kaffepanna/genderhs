@@ -1,4 +1,4 @@
-module Data where
+module SpeechCorpus where
 import RIO
 import qualified RIO.Text as T
 import RIO.Directory

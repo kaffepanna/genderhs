@@ -7,7 +7,7 @@ import Data.Binary.Get
 import Graphics.Gnuplot.Simple
 import qualified Conduit as C
 import qualified Data.Conduit.Serialization.Binary as CSB
-import Data (dmain)
+import SpeechCorpus (dmain)
 
 plotAttrs :: [Attribute3d]
 plotAttrs = [Plot3dType ColorMap, CornersToColor Corner1]
@@ -20,7 +20,9 @@ decoder :: (C.MonadThrow m) => C.ConduitT BS.ByteString Int16 m ()
 decoder = CSB.conduitGet getInt16le
 
 main :: IO ()
-main = runSimpleApp Data.dmain
+main = runSimpleApp $ do 
+    SpeechCorpus.dmain
+    return ()
 
 -- main :: IO ()
 -- main = do
